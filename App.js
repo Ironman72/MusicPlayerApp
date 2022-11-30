@@ -1,10 +1,11 @@
-import { View, Text ,StyleSheet} from 'react-native'
+import { View, StatusBar ,StyleSheet} from 'react-native'
 import React from 'react'
 import MusicPlayer from './Screens/MusicPlayer'
 
 const App = () => {
   return (
     <View style={styles.container}>
+      <StatusBar barStyle='light-content'/>
       <MusicPlayer/>
     </View>
   )

@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Dimensions, Image } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import Slider from '@react-native-community/slider';
+
 
 const { height, width } = Dimensions.get('window');
 
@@ -18,7 +20,40 @@ const MusicPlayer = () => {
                     <Text style={styles.songTitle}>Song Name</Text>
                     <Text style={styles.songArtist}> Some Artist Name</Text>
                 </View>
+
+                {/* Slider */}
+                <View>
+                    <Slider
+                        style={styles.progressBar}
+                        value={10}
+                        minimumValue={0}
+                        maximumValue={100}
+                        thumbTintColor='#ffe03c'
+                        minimumTrackTintColor='#ffe03c'
+                        maximumTrackTintColor='#fffdf7'
+                        onSlidingComplete={() => { }}
+                    />
+                    {/* duration */}
+                    <View style={styles.progressDuration}>
+                        <Text style={styles.progressLevelText}>00:00</Text>
+                        <Text style={styles.progressLevelText}>00:00</Text>
+                    </View>
+                </View>
+
                 {/* Music Controls */}
+                <View style={styles.musicControllerWrapper}>
+                <TouchableOpacity onPress={() => { }}>
+                        <Ionicons name='play-skip-back-outline' size={35} color='#ffe03c' />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { }}>
+                        <Ionicons name='ios-play-circle' size={75} color='#ffe03c' />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { }}>
+                        <Ionicons name='play-skip-forward-outline' size={35} color='#ffe03c' />
+                    </TouchableOpacity>
+                </View>
+
+
             </View>
             <View style={styles.bottomContainer}>
                 <View style={styles.IconWrapper}>
@@ -63,6 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: '80%'
     },
+
     imageWrapper: {
         width: 300,
         height: 340,
@@ -76,16 +112,40 @@ const styles = StyleSheet.create({
     },
     songTitle: {
         color: 'white',
-        textAlign:'center',
+        textAlign: 'center',
         fontWeight: '600',
         fontSize: 18,
 
     },
     songArtist: {
         color: 'white',
-        textAlign:'center',
+        textAlign: 'center',
         fontWeight: '400',
         fontSize: 16,
+    },
+    progressBar: {
+        width: 350,
+        height: 40,
+        marginTop: 25,
+        flexDirection: 'row',
+
+    },
+    progressDuration: {
+        width: 340,
+        flexDirection: 'row',
+        justifyContent:'space-between'
+
+    },
+    progressLevelText: {
+        color: 'white',
+        fontWeight: '500'
+    },
+    musicControllerWrapper:{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        width : '60%',
+        marginTop: 15
     }
 
 })
