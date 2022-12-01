@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Slider from '@react-native-community/slider';
 
 
-const { height, width } = Dimensions.get('window');
+const {  width } = Dimensions.get('window');
 
 const MusicPlayer = () => {
 
